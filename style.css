@@ -120,3 +120,7 @@ td {
 h1 {
     align-items: center;
 }
+
+button:hover {
+    background-color: #999;
+    }
