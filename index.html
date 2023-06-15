@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+
+</head>
+
+<body>
+
+
+
+  <div id="idRoot" class="clsRoot">
+    <div id="idGameHeader" class="clsGameHeader">
+      <div class="wrapper">
+        <div class="box header">
+          <h1>D<img class="manImg" src="https://www.svgrepo.com/show/418391/dessert-donut-doughnut.svg" width="40px"
+              height=" 40px">nut Maker</h1>
+        </div>
+        <div class="box sidebar">
+          <h2>Donut Summary</h2><br />
+          <div class="sideBarContent>">
+            <table>
+              <tr>
+                <td colspan="2" id="idCounter">Total Donuts</td>
+                <td colspan="2" id="idCounter2">Purchased</td>
+              </tr>
+              <tr>
+                <td><button id="idAutoCounter" class="clsAutoCounter"><img class="manImg"
+                      src="https://www.svgrepo.com/show/474695/oven-tray.svg" width="50px" height=" 50px"
+                      onclick="autoDonuts()"></button></td>
+
+                <td><button id="idAutoBuy" class="clsAutoBuy"><img class="manImg"
+                      src="https://www.svgrepo.com/show/17455/doughnut.svg" width="50px" height=" 50px"
+                      onclick="autoBuy()"></button></td>
+
+                <!-- <td><button  id="iondResetCounter" class="clsResetCounter"><img class="manImg" src="https://www.svgrepo.com/show/54322/donut.svg" width="50px" height=" 50px" ></button></td> -->
+
+                <td><button id="idResetAll" class="clsResetAll"><img class="manImg"
+                      src="https://www.svgrepo.com/show/135967/power-button.svg" width="100px" height=" 50px"
+                      onclick="resetGame()"></button></td>
+              </tr>
+              <tr>
+                <td>auto</td>
+                <td>buy</td>
+                <!-- <td>sell</td> -->
+                <td>reset</td>
+              </tr>
+
+            </table>
+          </div>
+
+          <br /><br />
+        </div>
+        <div class="box content">
+          <div class="imageContainer"><br /><img id="idDonut" class="clsDonut"
+              src="https://drive.google.com/uc?id=1icgxqBdLR_o2lz-kEyTgho5AeVMucZ4X" alt="donut" width="300px"
+              height="300px" onclick="fProcess()" /><br /><br /></div>
+        </div>
+
+        <div class="box footer">© 2023</div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
+
+<!-- <div><button id="idCounter" class="clsCounter">your count</button></div>
+<button  id="idAutoCounter" class="clsAutoCounter">auto donuts<img class="manImg" src="https://www.svgrepo.com/show/474695/oven-tray.svg" width="50px" height=" 50px" ></button>
+<button  id="idResetCounter" class="clsResetCounter">reset<img class="manImg" src="https://www.svgrepo.com/show/284084/donut.svg" width="50px" height=" 50px" ></button> -->
