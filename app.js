@@ -9,10 +9,9 @@
 //Resets the game state. This action should reset the game to zero donuts and zero Auto Clickers
 
 var clicks = 0;
-var autoClicks = 0;
-var firstAutoClicks = true;
-var balance = 0;
-var autoTotal = 100;
+var buyClicks = 0;
+var firstBuyClick = true;
+var autoPurchased = 100;
 var totalPurchased = 0;
 
 function zoomInOut() {
@@ -22,7 +21,7 @@ function zoomInOut() {
   if (currWidth >= 300) {
     myImg.style.width = currWidth - 100 + "px";
     const timerF = setInterval(clickCounter, 1000);
-    console.log(timerF);
+    //console.log(timerF);
   } else {
     myImg.style.width = currWidth + 100 + "px";
   }
@@ -31,7 +30,6 @@ function zoomInOut() {
 function clickCounter() {
   clicks += 1;
   document.getElementById("idCounter").innerHTML = clicks;
-
 }
 
 function fProcess() {
@@ -47,10 +45,9 @@ function autoDonuts() {
 
 function resetGame() {
   clicks = 0;
-  autoClicks = 0;
-  firstAutoClicks = true;
-  balance = 0;
-  autoTotal = 100;
+  buyClicks = 0;
+  firstBuyClick = true;
+  autoPurchased = 100;
   totalPurchased = 0;
   clearInterval(clickCounter);
   document.getElementById("idCounter").innerHTML = clicks;
@@ -64,26 +61,32 @@ function btnLocker(elementId, status) {
 }
 
 function autoBuy() {
-  if (firstAutoClicks == true && clicks > 101) {
-    clicks = Math.abs(clicks - autoTotal);
-    autoClicks += 1;
-    firstAutoClicks = false;
-    totalPurchased = totalPurchased + autoTotal;
-  
+  if (firstBuyClick == true && clicks > autoPurchased) {
+    clicks = Math.abs(clicks - autoPurchased);
+    buyClicks += 1;
+    firstBuyClick = false;
+    totalPurchased = totalPurchased + autoPurchased;
+
     document.getElementById("idCounter").innerHTML = clicks;
-    document.getElementById("idCounter2").innerHTML = autoTotal;
+    document.getElementById("idCounter2").innerHTML = autoPurchased;
     document.getElementById("idCounter3").innerHTML = totalPurchased;
-   
-  } else if (firstAutoClicks == false && clicks > 101 && autoClicks >= 1) {
-    autoTotal = Math.trunc(autoTotal * 1.1);
-    clicks = Math.abs(clicks - autoTotal);
-    autoClicks += 1;
-    firstAutoClicks = false;
-    totalPurchased = totalPurchased + autoTotal;
+  } else if (
+    firstBuyClick == false &&
+    clicks > Math.trunc(autoPurchased * 1.1) &&
+    buyClicks >= 1
+  ) {
+    autoPurchased = Math.trunc(autoPurchased * 1.1);
+    clicks = Math.abs(clicks - autoPurchased);
+    buyClicks += 1;
+    firstBuyClick = false;
+    totalPurchased = totalPurchased + autoPurchased;
     document.getElementById("idCounter").innerHTML = clicks;
-    document.getElementById("idCounter2").innerHTML = autoTotal;
+    document.getElementById("idCounter2").innerHTML = autoPurchased;
     document.getElementById("idCounter3").innerHTML = totalPurchased;
+
+    console.log("clicks:" + clicks);
+    console.log("buyClicks:" + buyClicks);
+    console.log("autoPurchased:" + autoPurchased);
+    console.log("totalPurchased:" + totalPurchased);
   }
 }
-
-
