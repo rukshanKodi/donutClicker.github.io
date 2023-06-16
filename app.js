@@ -13,6 +13,7 @@ var buyClicks = 0;
 var firstBuyClick = true;
 var autoPurchased = 100;
 var totalPurchased = 0;
+setInterval(autoClick, 1000);
 
 function zoomInOut() {
   var myImg = document.getElementById("idDonut");
@@ -20,7 +21,7 @@ function zoomInOut() {
 
   if (currWidth >= 300) {
     myImg.style.width = currWidth - 100 + "px";
-    const timerF = setInterval(clickCounter, 1000);
+    //const timerF = setInterval(autoClick, 1000);
     //console.log(timerF);
   } else {
     myImg.style.width = currWidth + 100 + "px";
@@ -29,7 +30,18 @@ function zoomInOut() {
 
 function clickCounter() {
   clicks += 1;
+
+  //clicks  += buyClicks;
   document.getElementById("idCounter").innerHTML = clicks;
+
+}
+
+function autoClick(){
+
+  clicks  += buyClicks;
+  document.getElementById("idCounter").innerHTML = clicks;
+  //const timerF = setInterval(clickCounter, 1000);
+
 }
 
 function fProcess() {
@@ -37,11 +49,11 @@ function fProcess() {
   clickCounter();
 }
 
-function autoDonuts() {
-  const timerF = setInterval(clickCounter, 1000);
+//function autoDonuts() {
+ // const timerF = setInterval(clickCounter, 1000);
   // let element = document.getElementById("idAutoCounter");
   // let disabled = element.getAttribute("disabled");
-}
+//}
 
 function resetGame() {
   clicks = 0;
@@ -66,15 +78,12 @@ function autoBuy() {
     buyClicks += 1;
     firstBuyClick = false;
     totalPurchased = totalPurchased + autoPurchased;
-
+  
     document.getElementById("idCounter").innerHTML = clicks;
     document.getElementById("idCounter2").innerHTML = autoPurchased;
     document.getElementById("idCounter3").innerHTML = totalPurchased;
-  } else if (
-    firstBuyClick == false &&
-    clicks > Math.trunc(autoPurchased * 1.1) &&
-    buyClicks >= 1
-  ) {
+   
+  } else if (firstBuyClick == false && clicks > Math.trunc(autoPurchased * 1.1) && buyClicks >= 1) {
     autoPurchased = Math.trunc(autoPurchased * 1.1);
     clicks = Math.abs(clicks - autoPurchased);
     buyClicks += 1;
@@ -84,9 +93,13 @@ function autoBuy() {
     document.getElementById("idCounter2").innerHTML = autoPurchased;
     document.getElementById("idCounter3").innerHTML = totalPurchased;
 
-    console.log("clicks:" + clicks);
-    console.log("buyClicks:" + buyClicks);
-    console.log("autoPurchased:" + autoPurchased);
-    console.log("totalPurchased:" + totalPurchased);
+console.log("clicks:"+clicks);
+console.log("buyClicks:"+buyClicks);
+console.log("autoPurchased:"+autoPurchased);
+console.log("totalPurchased:"+totalPurchased);
+
   }
+
 }
+
+
